@@ -11,4 +11,6 @@ public class Node<TKey, TValue, TNode>(TKey key, TValue value) where TNode : Nod
     
     public bool IsLeftChild  => this.Parent != null && this.Parent.Left == this;
     public bool IsRightChild => this.Parent != null && this.Parent.Right == this;
+
+    public int Height => 1 + Math.Max(Left?.Height ?? 0, Right?.Height ?? 0);
 }
