@@ -108,17 +108,20 @@ public abstract class BinarySearchTreeBase<TKey, TValue, TNode>(IComparer<TKey>?
             {
                 current = current.Left;
             }
+            TNode? rebalanceStart;
             if (current != node.Right)
             {
+                rebalanceStart = current.Parent;
                 Transplant (current, current.Right); // удалили наш current
                 current.Right = node.Right;
                 current.Right.Parent = current;
             }
-            TNode? parent = node.Parent;
+            else rebalanceStart = current;
+
             Transplant (node, current);
             current.Left = node.Left;
             current.Left.Parent = current;
-            OnNodeRemoved(parent, current);
+            OnNodeRemoved(rebalanceStart, current);
         }
     }
 
