@@ -24,9 +24,9 @@ public abstract class BinarySearchTreeBase<TKey, TValue, TNode>(IComparer<TKey>?
         TNode newNode = CreateNode (key, value);
          if (Root == null) 
         {
-             Root = newNode;
+            Root = newNode;
             Count++;
-             OnNodeAdded(newNode);
+            OnNodeAdded(newNode);
             return;
         }
         else
@@ -470,7 +470,7 @@ public abstract class BinarySearchTreeBase<TKey, TValue, TNode>(IComparer<TKey>?
             }
 
 
-            if (_strategy == TraversalStrategy.PreOrderReverse) // право - лево - корень PROBLEM
+            if (_strategy == TraversalStrategy.PreOrderReverse) // право - лево - корень
             {
                 if (!_started)
                 {
